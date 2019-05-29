@@ -5,8 +5,7 @@ import { Product } from '../interfaces/product';
 
 @Injectable()
 export class ProductService {
-  private productApiEndpoint =
-    'https://ecom-node-heroku.herokuapp.com/api/products';
+  private productApiEndpoint = 'https://ecom-node-heroku.herokuapp.com/api/products';
 
   constructor(private httpClient: HttpClient) {}
 
