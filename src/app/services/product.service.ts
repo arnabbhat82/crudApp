@@ -32,7 +32,6 @@ export class ProductService {
 
   editProduct(product: Product): Observable<{ message: string }> {
     const { _id, ...productParts } = product;
-    console.log(productParts);
     return this.httpClient
       .patch(`${this.productApiEndpoint}/${product._id}`, productParts) as Observable<{ message: string }>;
   }
