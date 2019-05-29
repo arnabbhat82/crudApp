@@ -1,0 +1,15 @@
+<h1>Get Request https://ecom-node-heroku.herokuapp.com/api/products</h1>
+<table border="1">
+  <tr>
+
+    <th>Name</th>
+    <th>Price</th>
+    <th>Quantity Available</th>
+  </tr>
+  <tr *ngFor="let pro of lstProducts">
+    <td>{{ pro.name }}</td>
+    <td>{{ pro.price }}</td>
+    <td>{{ pro.quantityAvailable }}</td>
+
+  </tr>
+</table>
