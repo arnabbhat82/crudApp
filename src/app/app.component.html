@@ -1,15 +1,26 @@
-<h1>Get Request https://ecom-node-heroku.herokuapp.com/api/products</h1>
+<h1>CRUD API https://ecom-node-heroku.herokuapp.com/api/products</h1>
+
+<p>
+  <button type="button" (click)="addProduct()">Add</button>
+  <span style="margin-left: 20px">{{message}}</span>
+</p>
+
 <table border="1">
   <tr>
-
     <th>Name</th>
     <th>Price</th>
+    <th>Details</th>
     <th>Quantity Available</th>
+    <th></th>
   </tr>
-  <tr *ngFor="let pro of lstProducts">
-    <td>{{ pro.name }}</td>
-    <td>{{ pro.price }}</td>
-    <td>{{ pro.quantityAvailable }}</td>
-
+  <tr *ngFor="let product of products; index as i">
+    <td>{{ product.name }}</td>
+    <td>{{ product.price }}</td>
+    <td>{{ product.details }}</td>
+    <td>{{ product.quantityAvailable }}</td>
+    <td>
+      <button type="button" (click)="editProduct(i)">Edit</button>
+      <button type="button" (click)="deleteProduct(i)">Delete</button>
+    </td>
   </tr>
 </table>

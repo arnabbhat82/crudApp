@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FreeApiService } from './services/freeapi.service';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { FreeApiService } from './services/freeapi.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [FreeApiService],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
