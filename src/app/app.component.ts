@@ -22,23 +22,27 @@ export class AppComponent implements OnInit {
     const newProduct: Product = {
       name: 'Chocolate',
       price: 50,
-      details: '',
+      details: 'A Chocomonks product',
       quantityAvailable: 20
     };
     this.productService.addProduct(newProduct)
-      .subscribe(console.log);
+      .subscribe(data => this.products.push(data));
   }
 
   editProduct(i: number) {
-    this.productService.editProduct(this.products[i])
+    const product: Product = {
+      ...this.products[i],
+      price: this.products[i].price + 10
+    };
+    this.productService.editProduct(product)
       .subscribe(data => {
-        this.products[i].price += 10;
+        this.products[i] = product;
         this.message = data.message;
       });
   }
 
   deleteProduct(i: number) {
-    this.productService.deleteProduct(this.products[i])
+    this.productService.deleteProduct(this.products[i]._id)
       .subscribe(data => {
         this.products.splice(i, 1);
         this.message = data.message;

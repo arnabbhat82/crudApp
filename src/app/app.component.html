@@ -9,14 +9,12 @@
   <tr>
     <th>Name</th>
     <th>Price</th>
-    <th>Details</th>
     <th>Quantity Available</th>
     <th></th>
   </tr>
   <tr *ngFor="let product of products; index as i">
     <td>{{ product.name }}</td>
     <td>{{ product.price }}</td>
-    <td>{{ product.details }}</td>
     <td>{{ product.quantityAvailable }}</td>
     <td>
       <button type="button" (click)="editProduct(i)">Edit</button>
