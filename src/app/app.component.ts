@@ -30,13 +30,13 @@ export class AppComponent implements OnInit {
   }
 
   editProduct(i: number) {
-    const product: Product = {
+    const modifiedProduct: Product = {
       ...this.products[i],
       price: this.products[i].price + 10
     };
-    this.productService.editProduct(product)
+    this.productService.editProduct(modifiedProduct)
       .subscribe(data => {
-        this.products[i] = product;
+        this.products[i] = modifiedProduct;
         this.message = data.message;
       });
   }

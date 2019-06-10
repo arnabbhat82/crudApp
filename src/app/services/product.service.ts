@@ -32,10 +32,10 @@ export class ProductService {
       .pipe(map(({__v, details, ...product}: ProductRaw) => product)) as Observable<Product>;
   }
 
-  editProduct(product: Product): Observable<{ message: string }> {
-    const { _id, ...productParts } = product;
+  editProduct(modifiedProduct: Product): Observable<{ message: string }> {
+    const { _id, ...productRest } = modifiedProduct;
     return this.httpClient
-      .patch(`${this.productApiEndpoint}/${_id}`, productParts) as Observable<{ message: string }>;
+      .patch(`${this.productApiEndpoint}/${_id}`, productRest) as Observable<{ message: string }>;
   }
 
   deleteProduct(id: string): Observable<{ message: string }> {
