@@ -4,7 +4,9 @@ import { Product } from '../interfaces/product';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductService {
   private productApiEndpoint = 'https://ecom-node-heroku.herokuapp.com/api/products';
 
@@ -33,7 +35,7 @@ export class ProductService {
   editProduct(product: Product): Observable<{ message: string }> {
     const { _id, ...productParts } = product;
     return this.httpClient
-      .patch(`${this.productApiEndpoint}/${product._id}`, productParts) as Observable<{ message: string }>;
+      .patch(`${this.productApiEndpoint}/${_id}`, productParts) as Observable<{ message: string }>;
   }
 
   deleteProduct(id: string): Observable<{ message: string }> {
